@@ -91,3 +91,48 @@ node app.js
 ````
 
 Step 7: Open browser and hit http://localhost:3000/status 
+
+
+### vs code plugin
+
+````
+https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+https://marketplace.visualstudio.com/items?itemName=rodrigovallades.es7-react-js-snippets
+
+https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets
+
+https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
+
+https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
+
+https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+
+https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost
+
+````
+### React Frontend 
+
+Step 1: Install npx 
+
+````cmd
+npm install -g npx
+````
+
+Step 2: Create React project  
+
+````cmd
+
+c:\node-sample\sample-api\frontend\
+npx create-react-app student-record-mgnt-ui
+cd student-record-mgnt-ui
+npm start
+
+````
+
+Step 3: install react dom  
+````cmd
+npm install react-router-dom --save
+````

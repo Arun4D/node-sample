@@ -1,0 +1,15 @@
+{
+  "name": "student-record-mgnt-api-auth",
+  "version": "1.0.0",
+  "description": "Student record management api auth",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

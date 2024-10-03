@@ -32,7 +32,7 @@ npm init -y
 Step 3: Install Express and other dependencies
 ````cmd
 
-npm install express mysql2 sequelize body-parser
+npm install express mysql2 sequelize body-parser cors
 
 ````
 
@@ -54,10 +54,14 @@ Step 7: Open browser and hit http://localhost:3000/status
 
 Step 8: 
 ````
-CREATE TABLE student (   id INT AUTO_INCREMENT PRIMARY KEY,   name VARCHAR(100) NOT NULL,   age INT NOT NULL,   email VARCHAR(100) NOT NULL UNIQUE,
+CREATE TABLE students (   id INT AUTO_INCREMENT PRIMARY KEY,   name VARCHAR(100) NOT NULL,   age INT NOT NULL,   email VARCHAR(100) NOT NULL UNIQUE,
 enrollment_date DATETIME DEFAULT CURRENT_TIMESTAMP );
 
-INSERT INTO student (name, age, email)  VALUES ('John', 22, 'john@example.com');
+INSERT INTO students (name, age, email, createdAt, updatedAt)  VALUES ('John', 22, 'john@example.com', now(), now());
+
+CREATE TABLE auths (   id INT AUTO_INCREMENT PRIMARY KEY,   username VARCHAR(100) NOT NULL,   password VARCHAR(100)  NOT NULL, created_date DATETIME DEFAULT CURRENT_TIMESTAMP );
+
+INSERT INTO auths (username, password, createdAt, updatedAt)  VALUES ('arun', 'arun', now(), now());
 
 ````
 Step 9: curl
@@ -65,10 +69,17 @@ Step 9: curl
 ````
 curl --header "Content-Type: application/json" \
   --request POST \
+  --data '{"username":"arun","password":"arun"}' \
+  http://localhost:4000/api/auth
+
+curl --header "Content-Type: application/json" \
+  --request POST \
   --data '{"name":"arun","age":"33", "email":"test@gmail.com"}' \
-  http://localhost:3000/api/student
+  http://localhost:4000/api/student
 
   curl --header "Content-Type: application/json" \
   --request GET \
-  http://localhost:3000/api/student
+  http://localhost:4000/api/student
+
+
 ````    

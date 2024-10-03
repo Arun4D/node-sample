@@ -1,24 +1,22 @@
 import Sequelize from 'sequelize';
 import sequelize from '../config/db.config.js';
 
-const Student = sequelize.define('students', {
-  name: {
+const Auth = sequelize.define('auths', {
+  username: {
     type: Sequelize.STRING
   },
-  email: {
+  password: {
     type: Sequelize.STRING
   },
-  age: {
-    type: Sequelize.INTEGER
-  }
+  
 });
 
 sequelize.sync()
   .then(() => {
-    console.log('Student table created');
+    console.log('Auth table created');
   })
   .catch(err => {
     console.log('Error: ', err);
   });
 
-export default Student;
+export default Auth;
