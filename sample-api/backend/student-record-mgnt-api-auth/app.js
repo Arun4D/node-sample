@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path')
 const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -10,6 +11,7 @@ app.use(cors(
         methods: ["GET","POST", "OPTION"]
     }
 ))
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.post('/api/auth', async(req, res) => {
     if(req.body.username == req.body.password) {
