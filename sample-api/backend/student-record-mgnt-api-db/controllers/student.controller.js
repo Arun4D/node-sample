@@ -8,7 +8,7 @@ exports.createStudent = function(req, res) {
     age: req.body.age
   };
 
-  var query = "INSERT INTO student (name, email, age) VALUES (?, ?, ?)";
+  var query = "INSERT INTO students_old (name, email, age) VALUES (?, ?, ?)";
   db.query(query, [user.name, user.email, user.age], function(err, result) {
     if (err) {
       res.status(500).send(err);
@@ -20,7 +20,7 @@ exports.createStudent = function(req, res) {
 
 // Get All Students
 exports.getStudents = function(req, res) {
-  var query = "SELECT * FROM student";
+  var query = "SELECT * FROM students_old";
   db.query(query, function(err, results) {
     if (err) {
       res.status(500).send(err);
@@ -32,7 +32,7 @@ exports.getStudents = function(req, res) {
 
 // Get Student by ID
 exports.getStudentById = function(req, res) {
-  var query = "SELECT * FROM student WHERE id = ?";
+  var query = "SELECT * FROM students_old WHERE id = ?";
   db.query(query, [req.params.id], function(err, result) {
     if (err) {
       res.status(500).send(err);
@@ -52,7 +52,7 @@ exports.updateStudent = function(req, res) {
     age: req.body.age
   };
 
-  var query = "UPDATE student SET name = ?, email = ?, age = ? WHERE id = ?";
+  var query = "UPDATE students_old SET name = ?, email = ?, age = ? WHERE id = ?";
   db.query(query, [user.name, user.email, user.age, req.params.id], function(err, result) {
     if (err) {
       res.status(500).send(err);
@@ -66,7 +66,7 @@ exports.updateStudent = function(req, res) {
 
 // Delete Student
 exports.deleteStudent = function(req, res) {
-  var query = "DELETE FROM student WHERE id = ?";
+  var query = "DELETE FROM students_old WHERE id = ?";
   db.query(query, [req.params.id], function(err, result) {
     if (err) {
       res.status(500).send(err);

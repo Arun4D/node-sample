@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api', userRoutes);
 
-var PORT = 3000;
+var PORT = 4000;
 
 app.listen(PORT, function() {
   console.log("Server is running on port " + PORT);
